@@ -124,7 +124,7 @@ cd MeuProjeto
 2️ Instale as dependências
 pip install numpy scikit-learn
 
-▶Como rodar
+Como rodar
 
 Execute o arquivo principal:
 
