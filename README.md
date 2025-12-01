@@ -1,34 +1,33 @@
-🐉 Dragon Ball Terminal — Inimigo com Machine Learning
+Dragon Ball Terminal — Inimigo com Machine Learning
 
 Um mini-jogo de Dragon Ball totalmente no terminal, com batalhas em turnos e um inimigo inteligente usando Machine Learning (Logistic Regression).
 A cada luta, o inimigo coleta dados, aprende com seus erros e se torna mais difícil de vencer!
-
-🚀 Funcionalidades
-⚔️ Sistema de combate em turnos
+ Funcionalidades
+ Sistema de combate em turnos
 
 Você pode escolher entre:
 
-🥊 Ataque básico
+ Ataque básico
 
-🌩️ Ataque especial
+ Ataque especial
 
-🛡️ Defender
+ Defender
 
-🔋 Carregar KI
+ Carregar KI
 
-🔥 Transformar (quando disponível)
+ Transformar (quando disponível)
 
-🧠 Inimigo com Inteligência Artificial (IA)
+ Inimigo com Inteligência Artificial (IA)
 
 O oponente usa Logistic Regression para decidir qual ação é melhor com base em:
 
-❤️ Vida do inimigo
+ Vida do inimigo
 
-💙 Vida do jogador
+ Vida do jogador
 
-🔥 Nível de agressividade
+ Nível de agressividade
 
-📈 IA que aprende com cada batalha
+ IA que aprende com cada batalha
 
 Após o fim da luta, a IA analisa:
 
@@ -40,9 +39,9 @@ Como estavam as vidas no momento
 
 E adiciona isso ao treinamento
 
-➡ Resultado: o inimigo fica mais esperto e imprevisível conforme você joga.
+ Resultado: o inimigo fica mais esperto e imprevisível conforme você joga.
 
-🗂️ Como funciona a IA
+ Como funciona a IA
 
 A classe InimigoAI usa:
 
@@ -50,7 +49,7 @@ numpy para gerenciar dados
 
 scikit-learn para o modelo Logistic Regression
 
-📊 Base inicial de treinamento
+ Base inicial de treinamento
 Vida do Inimigo	Vida do Jogador	Agressividade	Ação
 100	100	0.5	defender
 30	80	0.5	atacar
@@ -59,7 +58,7 @@ Vida do Inimigo	Vida do Jogador	Agressividade	Ação
 Com base nisso, o modelo começa a prever ações —
 e conforme você joga, o dataset cresce.
 
-🤖 Código da IA (Machine Learning)
+ Código da IA (Machine Learning)
 import random
 import numpy as np
 from sklearn.linear_model import LogisticRegression
@@ -117,24 +116,24 @@ class InimigoAI:
         if len(set(self.y)) > 1:
             self.model.fit(self.X, self.y)
 
-🧩 Instalação
-1️⃣ Clone o repositório
+ Instalação
+1️ Clone o repositório
 git clone MeuProjeto
 cd MeuProjeto
 
-2️⃣ Instale as dependências
+2️ Instale as dependências
 pip install numpy scikit-learn
 
-▶️ Como rodar
+▶Como rodar
 
 Execute o arquivo principal:
 
 python main.py
 
-🛠️ Tecnologias usadas
+ Tecnologias usadas
 
-🐍 Python
+ Python
 
-📘 Scikit-learn (Logistic Regression)
+ Scikit-learn (Logistic Regression)
 
-🔢 NumPy
+ NumPy
