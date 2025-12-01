@@ -2,7 +2,6 @@ from models.batalha_model import BatalhaModel
 from view.batalha_view import BatalhaView
 
 class BatalhaController:
-
     def __init__(self, jogador, inimigo):
         self.batalha = BatalhaModel(jogador, inimigo)
         self.view = BatalhaView()
@@ -10,9 +9,17 @@ class BatalhaController:
     def iniciar(self):
         print("\n🔥 INÍCIO DA BATALHA 🔥\n")
 
-        while self.batalha.jogador.vida > 0 and self.batalha.inimigo.vida > 0:
+        while (
+            self.batalha.jogador.vida > 0 and
+            self.batalha.inimigo.vida > 0 and
+            self.batalha.rodada <= self.batalha.max_rodadas
+        ):
+            self.view.mostrar_status(
+                self.batalha.jogador,
+                self.batalha.inimigo,
+                self.batalha.rodada
+            )
 
-            self.view.mostrar_status(self.batalha.jogador, self.batalha.inimigo)
             acao = self.view.menu_jogador()
 
             jogador = self.batalha.jogador
@@ -23,18 +30,21 @@ class BatalhaController:
             elif acao == 2:
                 print(jogador.atacar_especial(inimigo))
             elif acao == 3:
-                jogador.defendendo = True
-                print("\n🛡️ Você está defendendo!")
+                jogador.defender()
+                print(f"\n🛡️ {jogador.nome} está defendendo!")
             elif acao == 4:
-                jogador.ki += 20
-                print("\n⚡ Você carregou KI +20!")
+                print(jogador.carregar_ki())
             elif acao == 5:
                 print(jogador.transformar())
 
             print(self.batalha.jogada_inimigo())
 
+            self.batalha.rodada += 1
+
         vencedor = (
-            jogador.nome if jogador.vida > 0 else inimigo.nome
+            "Empate (limite de rodadas)"
+            if self.batalha.rodada > self.batalha.max_rodadas
+            else (jogador.nome if jogador.vida > 0 else inimigo.nome)
         )
 
         self.view.mostrar_resultado(jogador, inimigo, vencedor)

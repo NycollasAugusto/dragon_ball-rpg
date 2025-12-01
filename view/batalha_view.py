@@ -1,9 +1,9 @@
 class BatalhaView:
 
     @staticmethod
-    def mostrar_status(jogador, inimigo):
+    def mostrar_status(jogador, inimigo, rodada):
         print("\n" + "="*45)
-        print(f" STATUS DA BATALHA ".center(45, "="))
+        print(f" STATUS DA BATALHA - RODADA {rodada} ".center(45, "="))
         print("="*45)
         print(f"💙 {jogador.nome}: {jogador.vida} HP | ⚡ KI: {jogador.ki}")
         print(f"❤️ {inimigo.nome}: {inimigo.vida} HP | ⚡ KI: {inimigo.ki}")
@@ -17,7 +17,14 @@ class BatalhaView:
         print("3️⃣  Defender")
         print("4️⃣  Carregar KI")
         print("5️⃣  Transformar")
-        return int(input("➡ "))
+        while True:
+            try:
+                escolha = int(input("➡ "))
+                if 1 <= escolha <= 5:
+                    return escolha
+                print("Escolha inválida! Digite 1-5.")
+            except ValueError:
+                print("Digite um número válido!")
 
     @staticmethod
     def narrar(texto):

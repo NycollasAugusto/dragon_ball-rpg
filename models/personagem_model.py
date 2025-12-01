@@ -16,7 +16,6 @@ class Personagem:
     def atacar_especial(self, alvo):
         if self.ki < 10:
             return f"{self.nome} tentou usar especial mas não tinha KI!"
-        
         self.ki -= 10
         dano = self.ataque_especial
         alvo.vida -= dano
