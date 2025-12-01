@@ -1,50 +1,65 @@
-Dragon Ball Terminal — Inimigo com Machine Learning
+🐉 Dragon Ball Terminal — Inimigo com Machine Learning
 
-Este projeto é uma versão de Dragon Ball para terminal, onde o jogador batalha contra um inimigo que aprende com as escolhas do jogador usando Machine Learning (Logistic Regression).
-O objetivo é criar um sistema simples, rápido e divertido onde o inimigo fica mais inteligente a cada luta!
- Funcionalidades
- Sistema de combate em turnos
+Um mini-jogo de Dragon Ball totalmente no terminal, com batalhas em turnos e um inimigo inteligente usando Machine Learning (Logistic Regression).
+A cada luta, o inimigo coleta dados, aprende com seus erros e se torna mais difícil de vencer!
 
-Atacar
+🚀 Funcionalidades
+⚔️ Sistema de combate em turnos
 
-Defender
+Você pode escolher entre:
 
-Carregar energia
- Inimigo com Inteligência Artificial (IA)
+🥊 Ataque básico
 
-O inimigo usa Machine Learning para decidir qual ação tomar baseado em:
+🌩️ Ataque especial
 
-Vida do inimigo
+🛡️ Defender
 
-Vida do jogador
+🔋 Carregar KI
 
-Nível de agressividade
+🔥 Transformar (quando disponível)
 
- IA que aprende com as batalhas
+🧠 Inimigo com Inteligência Artificial (IA)
 
-Após cada luta, o inimigo analisa:
+O oponente usa Logistic Regression para decidir qual ação é melhor com base em:
 
-se venceu ou perdeu
+❤️ Vida do inimigo
 
-qual ação tomou
+💙 Vida do jogador
 
-estado das vidas no momento
+🔥 Nível de agressividade
 
-E adiciona esses dados ao treinamento, ficando cada vez mais esperto.
+📈 IA que aprende com cada batalha
 
- Como funciona a IA
+Após o fim da luta, a IA analisa:
 
-A classe InimigoAI usa LogisticRegression do scikit-learn.
-Os dados usados pelo modelo são:
+Se venceu ou perdeu
 
+Qual ação tomou
+
+Como estavam as vidas no momento
+
+E adiciona isso ao treinamento
+
+➡ Resultado: o inimigo fica mais esperto e imprevisível conforme você joga.
+
+🗂️ Como funciona a IA
+
+A classe InimigoAI usa:
+
+numpy para gerenciar dados
+
+scikit-learn para o modelo Logistic Regression
+
+📊 Base inicial de treinamento
 Vida do Inimigo	Vida do Jogador	Agressividade	Ação
 100	100	0.5	defender
 30	80	0.5	atacar
 80	20	0.5	carregar
 
-Após cada batalha, novos dados são adicionados com base no resultado.
+Com base nisso, o modelo começa a prever ações —
+e conforme você joga, o dataset cresce.
 
-Código da IA (Machine Learning)
+🤖 Código da IA (Machine Learning)
 import random
 import numpy as np
 from sklearn.linear_model import LogisticRegression
@@ -102,37 +117,24 @@ class InimigoAI:
         if len(set(self.y)) > 1:
             self.model.fit(self.X, self.y)
 
- Instalação
-1. Clone o repositório
+🧩 Instalação
+1️⃣ Clone o repositório
 git clone MeuProjeto
 cd MeuProjeto
 
-2. Instale as dependências
+2️⃣ Instale as dependências
 pip install numpy scikit-learn
 
- Como rodar
+▶️ Como rodar
 
 Execute o arquivo principal:
 
 python main.py
 
- Tecnologias usadas
+🛠️ Tecnologias usadas
 
-Python
+🐍 Python
 
-Scikit-learn (Logistic Regression)
+📘 Scikit-learn (Logistic Regression)
 
-NumPy
-
- Objetivo educacional
-
-Esse projeto demonstra:
-
-Como integrar ML em jogos simples
-
-Como treinar modelos dinamicamente
-
-Como criar IA adaptativa usando Logistic Regression
-
- 
-
+🔢 NumPy
